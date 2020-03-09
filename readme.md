@@ -1,4 +1,4 @@
-#Simple auth ready to use with passportjs and express.
+# Simple auth ready to use with passportjs and express.
 
 Install:
 ```
