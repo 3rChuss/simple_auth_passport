@@ -49,8 +49,7 @@ app.post('/register', (req, res) => {
     User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
         if (err) throw err;
         passport.authenticate('local')(req, res, () => {
-            console.log('Registered');
-            res.redirect('/?registered');
+            res.redirect('/?registered=true');
         });
     });
 });
@@ -58,17 +57,17 @@ app.post('/register', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 });
+
 //middleware (code that runs after authenticate)
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/?loggedin',
+    successRedirect: '/?loggedin=true',
+    failureRedirect: '/?loggedin=false'
     }), (req, res) => {
-    console.log('Logged In');
 });
 
 app.get('/loggout', (req, res) => {
-    console.log('Logged out');
     req.logOut();
-    res.redirect('/?loggedout')
+    res.redirect('/?loggedout=true')
 });
 
 // ==================

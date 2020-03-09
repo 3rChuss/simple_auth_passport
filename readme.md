@@ -1,6 +1,11 @@
-Para comenzar y suponiendo que nuestro proyecto está preconfigurado vamos a instalarlo.
+#Simple auth ready to use with passportjs and express.
 
-**Vamos a necesitar:**
+Install:
+```
+npm install passport passport-local passport-local-mongoose express-session --save
+```
+
+**packaje.json**
 ```
 //=================================
 // * passport
@@ -10,7 +15,4 @@ Para comenzar y suponiendo que nuestro proyecto está preconfigurado vamos a ins
 //=================================
 ```
 
-Install:
-```
-npm install passport passport-local passport-local-mongoose express-session --save
-```
+Used **Semantic Ui** as front end.
