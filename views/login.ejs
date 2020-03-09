@@ -1,0 +1,18 @@
+<%- include('header')%>
+<!-- INICIO DEL FORMULARIO -->
+<div class="ui very padded segment container mt-5">
+    <div class="ui wide column">
+        <form class="ui form" action="/login" method="POST">
+            <h4 class="ui dividing header">Log In</h4>
+            <div class="field">
+                <label>Username / Email</label>
+                <input type="email" name="username" placeholder="user@gmail.ux" required autocomplete="email">
+            </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="******" required autocomplete="current-password">
+                </div>
+            <button class="ui button primary fluid" type="submit">Submit</button>
+        </form>
+    </div>
+</div>

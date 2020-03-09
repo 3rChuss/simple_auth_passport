@@ -1,0 +1,32 @@
+<%- include('header')%>
+<!-- INICIO DEL FORMULARIO -->
+<div class="ui very padded segment container mt-5">
+    <div class="ui wide column">
+        <form class="ui form" action="/register" method="POST">
+            <h4 class="ui dividing header">Register New User</h4>
+            <div class="field">
+                <label for="name">Name</label>
+                <div class="two fields">
+                    <div class="field">
+                        <input type="text" placeholder="your name">
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="last name">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Username / Email</label>
+                <input type="email" name="username" placeholder="user@gmail.ux" required autocomplete="email">
+            </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="******" required autocomplete="current-password">
+                </div>
+            <button class="ui button primary fluid" type="submit">Submit</button>
+        </form>
+        <div class="ui message">
+            <p style="text-align: center;">User already? <a href="#">Sign In</a></p>
+        </div>
+    </div>
+</div>
