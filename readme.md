@@ -1,5 +1,8 @@
 # Simple auth ready to use with passportjs and express.
 
+![Node + passport js](https://i.imgur.com/04OwkJH.jpg)
+
+
 Install:
 ```
 npm install passport passport-local passport-local-mongoose express-session --save
