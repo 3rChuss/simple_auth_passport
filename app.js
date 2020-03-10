@@ -40,7 +40,9 @@ passport.use(new localStrategy(User.authenticate()));
 app.get('/', (req, res) => {
     res.render('home');
 });
-
+app.get('/welcome', isLoggedIn, (req, res) => {
+    res.render('welcome');
+})
 // AUTH ROUTES
 app.get('/register', (req, res) => {
     res.render('register');
@@ -49,7 +51,7 @@ app.post('/register', (req, res) => {
     User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
         if (err) throw err;
         passport.authenticate('local')(req, res, () => {
-            res.redirect('/?registered=true');
+            res.redirect('/welcome?registered=true');
         });
     });
 });
@@ -60,8 +62,8 @@ app.get('/login', (req, res) => {
 
 //middleware (code that runs after authenticate)
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/?loggedin=true',
-    failureRedirect: '/?loggedin=false'
+    successRedirect: '/welcome?loggedin=true',
+    failureRedirect: '/login?loggedin=false'
     }), (req, res) => {
 });
 
@@ -69,6 +71,17 @@ app.get('/loggout', (req, res) => {
     req.logOut();
     res.redirect('/?loggedout=true')
 });
+
+// ==================
+// FUNCTIONS
+// ==================
+
+function isLoggedIn (req, res, next) {
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+};
 
 // ==================
 // SERVER
