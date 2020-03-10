@@ -5,7 +5,7 @@
 
 Install:
 ```
-npm install passport passport-local passport-local-mongoose express-session --save
+npm install
 ```
 
 **packaje.json**
